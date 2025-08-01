@@ -1,14 +1,18 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "globalDependencies": ["tsconfig.json"],
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "build/**"]
+      "inputs": ["src/**", "package.json", "tsconfig.json"],
+      "outputs": ["dist/**"],
+      "outputLogs": "errors-only"
     },
-    "dev": {
-      "cache": false
-    },
-    "lint": {},
-    "test": {}
+    "@superdjs/website#build": {
+      "dependsOn": ["^build"],
+      "inputs": ["public/**", "src/**", "next.config.ts", "package.json", "tsconfig.json"],
+      "outputs": [".next/**"],
+      "outputLogs": "full"
+    }
   }
 }
