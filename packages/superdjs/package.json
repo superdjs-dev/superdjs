@@ -1,0 +1,8 @@
+{
+  "name": "superdjs",
+  "packageManager": "yarn@4.9.2",
+  "devDependencies": {
+    "@types/node": "^24.1.0",
+    "typescript": "^5.9.2"
+  }
+}
